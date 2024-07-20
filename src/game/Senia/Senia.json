@@ -1,0 +1,26 @@
+{
+  "name": "Senia",
+  "total_players": 1,
+  "data": {
+    "scenes": [
+      { "name": "MainMenuScene", "prefabs": [] },
+      { "name": "GameScene", "prefabs": ["Player"] }
+    ],
+    "systems": [],
+    "assets": [],
+    "prefabs": [
+      {
+        "name": "Player",
+        "components": [
+          {
+            "type": "Position",
+            "properties": { "x": 5, "y": 10 }
+          },
+          {
+            "type": "isPlayer"
+          }
+        ]
+      }
+    ]
+  }
+}
