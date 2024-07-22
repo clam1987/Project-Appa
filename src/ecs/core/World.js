@@ -1,22 +1,20 @@
-import ECS from "..";
-
+import { camelCase } from "../../utils/utils";
 export default class World {
-  constructor(config, game) {
-    this.ecs = new ECS(game);
+  constructor(game) {
+    this.ecs = game.ecs;
     this.world = this.ecs.engine.createWorld();
-    this.initialize(config);
-  }
-
-  initialize(config) {
-    console.log(this.ecs.engine);
-    console.log(config);
-    config.data.prefabs.forEach((prefab) => {
-      this.ecs.engine.registerPrefab(prefab);
-    });
   }
 
   createEntity(prefabName, components) {
-    const entity = this.ecs.engine.createPrefab(prefabName, components);
+    const entity = this.world.createEntity(prefabName);
+
+    const component_list = this.ecs.engine._components._map;
+
+    components.forEach(({ type, properties }) => {
+      const component_class = component_list[camelCase(type)];
+      entity.add(component_class, properties ? properties : {});
+    });
+
     return entity;
   }
 
@@ -24,5 +22,7 @@ export default class World {
     this.ecs.engine.destroyEntity(entity);
   }
 
-  update(dt) {}
+  update(dt) {
+    this.ecs.update(dt);
+  }
 }

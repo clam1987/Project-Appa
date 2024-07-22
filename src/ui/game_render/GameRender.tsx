@@ -1,12 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Phaser from "phaser";
-import ECS from "../../ecs";
-import config from "../../utils/configs";
+import Phaser_config from "../../utils/configs";
 import Senia_Config from "../../game/Senia/Senia.json";
-import World from "../../ecs/core/World";
+import Game from "../../ecs/core/Game";
+import { SceneI } from "../../interface/ECS_Interfaces";
 
 const GameRender = () => {
-  const game_ref = useRef(null);
   const [game_config, setGameConfig] = useState<any>(null);
 
   useEffect(() => {
@@ -16,17 +15,14 @@ const GameRender = () => {
   useEffect(() => {
     if (!game_config) return;
 
-    const world = new World(game_config);
+    const game_cartridge = new Game(game_config);
 
-    const scenes = game_config.data.scenes.map(
-      (scene: { name: string; prefabs: [] }) => scene.name
-    );
-    console.log(scenes);
+    return () => {
+      if (game_cartridge) game_cartridge.destroy();
+    };
   }, [game_config]);
 
-  if (!game_config) return <h1>Loading game config</h1>;
-  console.log(game_config);
-  return <></>;
+  return <div id="game-container" style={{ border: "1px solid black" }} />;
 };
 
 export default GameRender;

@@ -23,6 +23,8 @@ export default class ECS extends Manager {
     });
   }
 
+  update(dt) {}
+
   destroy() {
     this.destroyEntities();
   }
