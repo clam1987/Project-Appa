@@ -6,4 +6,13 @@ export class Position extends Component {
     this.x = x;
     this.y = y;
   }
+
+  onUpdatePosition(evt) {
+    const { x, y } = evt.data;
+    this.x = x;
+    this.y = y;
+    console.log(`current X: ${this.x} and current Y: ${this.y}`);
+
+    evt.handle();
+  }
 }

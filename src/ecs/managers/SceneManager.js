@@ -20,7 +20,7 @@ export class SceneManager extends Manager {
   }
 
   getScene(scene_name) {
-    this.scene_manager.getScene(scene_name);
+    return this.scene_manager.getScene(scene_name);
   }
 
   startScene(scene) {

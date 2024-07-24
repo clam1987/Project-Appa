@@ -32,6 +32,9 @@
           {
             "type": "Sprite",
             "properties": { "key": "cat", "width": 80, "height": 80 }
+          },
+          {
+            "type": "PhaserData"
           }
         ]
       },

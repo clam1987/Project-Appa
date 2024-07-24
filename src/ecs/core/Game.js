@@ -2,7 +2,7 @@ import Phaser from "phaser";
 import Phaser_config from "../../utils/configs";
 import ECS from "..";
 import World from "./World";
-import { SpriteLoaderSystem } from "../systems";
+import { MovementSystem, SpriteLoaderSystem } from "../systems";
 import { InputManager, SceneManager } from "../managers";
 
 export default class Game {
@@ -10,7 +10,7 @@ export default class Game {
   phaser;
   scene;
 
-  constructor(config) {
+  constructor(config, canvas_container) {
     this.config = config;
     this.ecs = new ECS(this);
     this.world = new World(this);
@@ -40,11 +40,13 @@ export default class Game {
       console.log("phaser is ready");
       this.phaser.events.on("step", this.runtime, this);
       this.managers.get("sceneManager").initialize();
+      this.managers.get("inputManager").initialize();
     });
   }
 
   initializeSystems() {
     this.systems.set("spriteLoaderSystem", new SpriteLoaderSystem(this));
+    this.systems.set("movementSystem", new MovementSystem(this));
   }
 
   initializeManagers() {

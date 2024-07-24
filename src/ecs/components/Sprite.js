@@ -12,7 +12,6 @@ export class Sprite extends Component {
 
   onSpriteLoaded(evt) {
     console.log("sprite loaded!");
-    this.phaser_ref = evt.data.phaser_ref;
     this.loaded = true;
     evt.handle();
   }

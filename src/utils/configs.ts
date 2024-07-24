@@ -1,9 +1,12 @@
+import Phaser from "phaser";
+
 export default {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
   backgroundColor: "#ffffff",
-  parent: "game-container",
+  width: window.innerWidth - 5,
+  height: window.innerHeight - 5,
+  parent: "game-renderer",
+  autoFocus: true,
   physics: {
     default: "arcade",
     arcade: {
