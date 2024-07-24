@@ -72,7 +72,9 @@ export default class Game {
 
   update(dt) {
     this.world.update(dt);
-    this.systems.get("spriteLoaderSystem").update(dt);
+    this.systems.forEach((system) => {
+      system.update(dt);
+    });
   }
 
   runtime(_, delta) {
