@@ -1,7 +1,7 @@
 import { Engine } from "geotic";
 import * as components from "./components";
 import * as prefabs from "./prefabs";
-import Manager from "./managers/Manager.ts";
+import Manager from "./managers/Manager.js";
 
 export default class ECS extends Manager {
   #engine;

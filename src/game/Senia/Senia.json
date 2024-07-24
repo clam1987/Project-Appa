@@ -31,7 +31,7 @@
           },
           {
             "type": "Sprite",
-            "properties": { "key": "cat" }
+            "properties": { "key": "cat", "width": 80, "height": 80 }
           }
         ]
       },

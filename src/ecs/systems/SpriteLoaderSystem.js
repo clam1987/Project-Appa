@@ -18,6 +18,7 @@ export class SpriteLoaderSystem extends System {
     const { position, sprite } = entity;
     const scene = this.game.phaser.scene.getScenes(true)[0];
     const phaser_sprite = scene.add.image(position.x, position.y, sprite.key);
+    phaser_sprite.setDisplaySize(sprite.width, sprite.height);
     entity.fireEvent("sprite-loaded", { phaser_ref: phaser_sprite });
   }
 

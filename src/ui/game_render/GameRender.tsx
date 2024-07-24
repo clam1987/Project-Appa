@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import Phaser from "phaser";
-import Phaser_config from "../../utils/configs";
 import Senia_Config from "../../game/Senia/Senia.json";
 import Game from "../../ecs/core/Game";
-import { SceneI } from "../../interface/ECS_Interfaces";
 
 const GameRender = () => {
   const [game_config, setGameConfig] = useState<any>(null);

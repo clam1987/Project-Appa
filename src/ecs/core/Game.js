@@ -3,6 +3,7 @@ import Phaser_config from "../../utils/configs";
 import ECS from "..";
 import World from "./World";
 import { SpriteLoaderSystem } from "../systems";
+import { InputManager, SceneManager } from "../managers";
 
 export default class Game {
   #last_update;
@@ -14,44 +15,41 @@ export default class Game {
     this.ecs = new ECS(this);
     this.world = new World(this);
     this.systems = new Map();
+    this.managers = new Map();
     this.initialize(config);
     this.initializeSystems();
+    this.initializeManagers();
     this.phaser = null;
 
     window.game = this;
   }
 
-  initialize() {
+  async initialize() {
     if (!this.config) return console.error("Incorrect config!");
     this.config.data.prefabs.forEach((prefab) => {
       this.ecs.engine.registerPrefab(prefab);
     });
 
-    this.loadScene()
-      .then((scenes) => {
-        this.phaser = new Phaser.Game({
-          ...Phaser_config,
-          scene: scenes,
-        });
+    const scenes = await this.loadScene();
+    this.phaser = new Phaser.Game({
+      ...Phaser_config,
+      scene: scenes,
+    });
 
-        scenes.forEach((scene) => {
-          const original_update = scene.prototype.update || function () {};
-          scene.prototype.update = (time, delta) => {
-            this.runtime();
-            original_update.call(
-              this.phaser.scene.keys[scene.name],
-              time,
-              delta
-            );
-          };
-        });
-        this.phaser.scene.start("MainMenuScene");
-      })
-      .catch((err) => console.error(err));
+    this.phaser.events.on("ready", () => {
+      console.log("phaser is ready");
+      this.phaser.events.on("step", this.runtime, this);
+      this.managers.get("sceneManager").initialize();
+    });
   }
 
   initializeSystems() {
     this.systems.set("spriteLoaderSystem", new SpriteLoaderSystem(this));
+  }
+
+  initializeManagers() {
+    this.managers.set("inputManager", new InputManager(this));
+    this.managers.set("sceneManager", new SceneManager(this));
   }
 
   async loadScene() {
@@ -77,17 +75,13 @@ export default class Game {
     this.systems.get("spriteLoaderSystem").update(dt);
   }
 
-  runtime() {
-    const now = Date.now();
-    const dt = now - this.#last_update / 1000;
-
-    this.update(dt);
-
-    this.#last_update = now;
+  runtime(_, delta) {
+    this.update(delta);
+    this.#last_update = Date.now();
   }
 
   destroy() {
-    this.ecs.engine.destroyWorld(this.world);
+    this.world.destroyWorld(this.world);
     this.phaser.destroy(true);
   }
 }

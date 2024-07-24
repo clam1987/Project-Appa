@@ -22,6 +22,10 @@ export default class World {
     this.ecs.engine.destroyEntity(entity);
   }
 
+  destroyWorld() {
+    this.world.destroy();
+  }
+
   update(dt) {
     this.ecs.update(dt);
   }
