@@ -6,8 +6,10 @@ import {
   MovementSystem,
   SpriteLoaderSystem,
   ImageLoaderSystem,
+  CameraSystem,
+  PhysicsSystem,
 } from "../systems";
-import { InputManager, SceneManager } from "../managers";
+import { InputManager, SceneManager, TileMapManager } from "../managers";
 
 export default class Game {
   #last_update;
@@ -52,11 +54,14 @@ export default class Game {
     this.systems.set("spriteLoaderSystem", new SpriteLoaderSystem(this));
     this.systems.set("movementSystem", new MovementSystem(this));
     this.systems.set("imageLoaderSystem", new ImageLoaderSystem(this));
+    this.systems.set("cameraSystem", new CameraSystem(this));
+    this.systems.set("physicsSystem", new PhysicsSystem(this));
   }
 
   initializeManagers() {
     this.managers.set("inputManager", new InputManager(this));
     this.managers.set("sceneManager", new SceneManager(this));
+    this.managers.set("tileMapManager", new TileMapManager(this));
   }
 
   async loadScene() {

@@ -22,9 +22,11 @@ export class SpriteLoaderSystem extends System {
       sprite.key,
       sprite.sprite_start
     );
+
     if (sprite.height !== null && sprite.width !== null) {
-      phaser_sprite.setDisplaySize(sprite.width, sprite.height);
+      phaser_sprite.setDisplaySize(30, 50).setSize(30, 40).setOffset(0, 24);
     }
+
     entity.fireEvent("sprite-loaded");
     entity.fireEvent("phaser-data-loaded", { phaser_ref: phaser_sprite });
   }

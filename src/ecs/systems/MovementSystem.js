@@ -19,7 +19,7 @@ export class MovementSystem extends System {
 
     let velocity_x = 0;
     let velocity_y = 0;
-    const speed = 95;
+    const speed = 175;
 
     if (input_manager.keys.move_left.isDown) {
       velocity_x -= 1;

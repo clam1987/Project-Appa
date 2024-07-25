@@ -4,3 +4,6 @@ export { Sprite } from "./Sprite";
 export { PhaserData } from "./PhaserData";
 export { Image } from "./Image";
 export { Animation } from "./Animation";
+export { Tweenable } from "./Tweenable";
+export { Camera } from "./Camera";
+export { Physics } from "./Physics";

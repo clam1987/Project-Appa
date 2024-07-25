@@ -21,6 +21,7 @@ export class InputManager extends Manager {
       move_down: Phaser.Input.Keyboard.KeyCodes.S,
       move_left: Phaser.Input.Keyboard.KeyCodes.A,
       move_right: Phaser.Input.Keyboard.KeyCodes.D,
+      debug: Phaser.Input.Keyboard.KeyCodes.BACKTICK,
     });
 
     /* for keybinding implementation

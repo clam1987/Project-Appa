@@ -4,8 +4,8 @@ export class Sprite extends Component {
   constructor({ key, width, height, sprite_start }) {
     super();
     this.key = key;
-    this.height = width || null;
-    this.width = height || null;
+    this.height = null || height;
+    this.width = null || width;
     this.sprite_start = sprite_start || null;
     this.loaded = false;
     this.phaser_ref = null;

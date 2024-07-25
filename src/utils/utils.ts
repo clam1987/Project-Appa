@@ -13,7 +13,15 @@ export const loadAssets = async (assets: any, game_name: string) => {
     if (isHttps(path)) {
       const res = await fetch(asset.json_path);
       const json = await res.json();
-      loaded_assets.set(name, { path, json });
+      if (asset?.name) {
+        loaded_assets.set(name, {
+          path,
+          json,
+          json_name: asset.json_name,
+        });
+      } else {
+        loaded_assets.set(name, { path, json });
+      }
     } else {
       const img_path = await import(`../${path}`);
       loaded_assets.set(name, img_path.default || img_path);

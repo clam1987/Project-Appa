@@ -7,4 +7,17 @@ export class Animation extends Component {
     loop: false,
     finished: false,
   };
+
+  onAnimationStart(evt) {
+    this.play = true;
+    this.finished = false;
+  }
+
+  onAnimationStop(evt) {
+    this.play = false;
+  }
+
+  onAnimationComplete(evt) {
+    this.finished = true;
+  }
 }
