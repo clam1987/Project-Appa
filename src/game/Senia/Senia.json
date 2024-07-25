@@ -2,18 +2,35 @@
   "name": "Senia",
   "total_players": 1,
   "data": {
-    "scenes": [{ "name": "MainMenuScene", "prefabs": ["Player", "Enemy"] }],
+    "scenes": [{ "name": "MainMenuScene", "prefabs": ["Player"] }],
     "systems": [],
     "assets": {
       "images": [
         {
           "name": "menu_background",
-          "path": "background.jpg",
+          "path": "game/Senia/assets/background.jpg",
           "scene": "MainMenuScene"
         },
         {
           "name": "cat",
-          "path": "cat.png",
+          "path": "game/Senia/assets/cat.png",
+          "scene": "MainMenuScene"
+        }
+      ],
+      "sprites": [
+        {
+          "name": "atlas",
+          "path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png",
+          "json_path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json",
+          "scene": "MainMenuScene"
+        }
+      ],
+      "tilemaps": [
+        {
+          "name": "tiles",
+          "path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/tilesets/tuxmon-sample-32px-extruded.png",
+          "json_name": "map",
+          "json_path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/tilemaps/tuxemon-town.json",
           "scene": "MainMenuScene"
         }
       ]
@@ -27,11 +44,11 @@
             "properties": { "x": 300, "y": 200 }
           },
           {
-            "type": "isPlayer"
+            "type": "IsPlayer"
           },
           {
             "type": "Sprite",
-            "properties": { "key": "cat", "width": 80, "height": 80 }
+            "properties": { "key": "atlas", "sprite_start": "misa-front" }
           },
           {
             "type": "PhaserData"

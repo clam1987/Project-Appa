@@ -2,7 +2,11 @@ import Phaser from "phaser";
 import Phaser_config from "../../utils/configs";
 import ECS from "..";
 import World from "./World";
-import { MovementSystem, SpriteLoaderSystem } from "../systems";
+import {
+  MovementSystem,
+  SpriteLoaderSystem,
+  ImageLoaderSystem,
+} from "../systems";
 import { InputManager, SceneManager } from "../managers";
 
 export default class Game {
@@ -47,6 +51,7 @@ export default class Game {
   initializeSystems() {
     this.systems.set("spriteLoaderSystem", new SpriteLoaderSystem(this));
     this.systems.set("movementSystem", new MovementSystem(this));
+    this.systems.set("imageLoaderSystem", new ImageLoaderSystem(this));
   }
 
   initializeManagers() {

@@ -1,7 +1,5 @@
 import System from "../core/System";
-import Phaser from "phaser";
 import { Sprite } from "../components";
-import cat from "../../game/Senia/assets/cat.png";
 
 export class SpriteLoaderSystem extends System {
   constructor(game) {
@@ -16,13 +14,17 @@ export class SpriteLoaderSystem extends System {
 
   loadSprite(entity) {
     const { position, sprite } = entity;
-    const scene = this.game.phaser.scene.getScenes(true)[0];
-    const phaser_sprite = scene.physics.add.image(
+    const scene_manager = this.game.managers.get("sceneManager");
+    const scene = scene_manager.getScene(scene_manager.current_scene);
+    const phaser_sprite = scene.physics.add.sprite(
       position.x,
       position.y,
-      sprite.key
+      sprite.key,
+      sprite.sprite_start
     );
-    phaser_sprite.setDisplaySize(sprite.width, sprite.height);
+    if (sprite.height !== null && sprite.width !== null) {
+      phaser_sprite.setDisplaySize(sprite.width, sprite.height);
+    }
     entity.fireEvent("sprite-loaded");
     entity.fireEvent("phaser-data-loaded", { phaser_ref: phaser_sprite });
   }

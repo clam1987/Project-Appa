@@ -7,7 +7,7 @@ export class MovementSystem extends System {
     super(game);
 
     this.position = game.world.world.createQuery({
-      any: [Position, IsPlayer, PhaserData],
+      all: [Position, IsPlayer, PhaserData],
     })._cache;
   }
 
@@ -21,16 +21,16 @@ export class MovementSystem extends System {
     let velocity_y = 0;
     const speed = 95;
 
-    if (input_manager.keyA.isDown) {
+    if (input_manager.keys.move_left.isDown) {
       velocity_x -= 1;
     }
-    if (input_manager.keyS.isDown) {
+    if (input_manager.keys.move_down.isDown) {
       velocity_y += 1;
     }
-    if (input_manager.keyD.isDown) {
+    if (input_manager.keys.move_right.isDown) {
       velocity_x += 1;
     }
-    if (input_manager.keyW.isDown) {
+    if (input_manager.keys.move_up.isDown) {
       velocity_y -= 1;
     }
     if (velocity_x !== 0 || velocity_y !== 0) {
@@ -40,17 +40,6 @@ export class MovementSystem extends System {
     } else {
       this.stopPlayerMovement(player_entities);
     }
-    // if (input_manager.keyA.isDown) {
-    //   this.setPlayerPosition(player_entities, -175, "left");
-    // } else if (input_manager.keyS.isDown) {
-    //   this.setPlayerPosition(player_entities, 175, "down");
-    // } else if (input_manager.keyD.isDown) {
-    //   this.setPlayerPosition(player_entities, 175, "right");
-    // } else if (input_manager.keyW.isDown) {
-    //   this.setPlayerPosition(player_entities, -175, "up");
-    // } else {
-    //   this.stopPlayerMovement(player_entities);
-    // }
   }
 
   setPlayerPosition(player_entities, velocity) {
@@ -65,20 +54,6 @@ export class MovementSystem extends System {
       });
     });
   }
-
-  //   setPlayerPosition(player_entities, velocity, orientation) {
-  //     player_entities.forEach((player) => {
-  //       player.fireEvent("update-position", {
-  //         x: player.phaserData.x,
-  //         y: player.phaserData.y,
-  //       });
-  //       player.fireEvent("stop-entity-movement");
-  //       player.fireEvent("update-entity-movement", {
-  //         velocity,
-  //         orientation,
-  //       });
-  //     });
-  //   }
 
   stopPlayerMovement(player_entities) {
     player_entities.forEach((player) => {

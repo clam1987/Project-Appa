@@ -1,11 +1,12 @@
 import { Component } from "geotic";
 
 export class Sprite extends Component {
-  constructor({ key, width, height }) {
+  constructor({ key, width, height, sprite_start }) {
     super();
     this.key = key;
-    this.height = width;
-    this.width = height;
+    this.height = width || null;
+    this.width = height || null;
+    this.sprite_start = sprite_start || null;
     this.loaded = false;
     this.phaser_ref = null;
   }

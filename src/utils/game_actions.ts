@@ -1,0 +1,6 @@
+const MOVE_UP = "Up";
+const MOVE_DOWN = "DOWN";
+const MOVE_LEFT = "MOVE_LEFT";
+const MOVE_RIGHT = "MOVE_RIGHT";
+
+export { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT };
