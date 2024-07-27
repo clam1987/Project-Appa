@@ -1,4 +1,4 @@
-import { Position, IsPlayer, PhaserData } from "../components";
+import { Position, IsPlayer, PhaserData, Animation } from "../components";
 import Phaser from "phaser";
 import System from "../core/System";
 
@@ -9,59 +9,100 @@ export class MovementSystem extends System {
     this.position = game.world.world.createQuery({
       all: [Position, IsPlayer, PhaserData],
     })._cache;
+
+    // Flag for initial player movement so animation doesn't run while player entity spawns in.
+    this.initial_movement = false;
+
+    window.addEventListener("stopMovement", this.handleStopMovement.bind(this));
   }
 
-  updatePlayerPosition() {
-    const input_manager = this.game.managers.get("inputManager");
+  handleStopMovement() {
     const player_entities = this.position.filter(
       (entity) => entity.id === "Player"
     );
 
-    let velocity_x = 0;
-    let velocity_y = 0;
-    const speed = 175;
+    this.stopPlayerMovement(player_entities);
+  }
 
-    if (input_manager.keys.move_left.isDown) {
-      velocity_x -= 1;
-    }
-    if (input_manager.keys.move_down.isDown) {
-      velocity_y += 1;
-    }
-    if (input_manager.keys.move_right.isDown) {
-      velocity_x += 1;
-    }
-    if (input_manager.keys.move_up.isDown) {
-      velocity_y -= 1;
-    }
-    if (velocity_x !== 0 || velocity_y !== 0) {
-      const velocity = new Phaser.Math.Vector2(velocity_x, velocity_y);
-      velocity.normalize().scale(speed);
-      this.setPlayerPosition(player_entities, velocity);
-    } else {
-      this.stopPlayerMovement(player_entities);
+  updatePlayerPosition() {
+    const input_manager = this.game.managers.get("inputManager");
+    const input_stack = input_manager.getInputs();
+    const player_entities = this.position.filter(
+      (entity) => entity.id === "Player"
+    );
+    if (input_stack.length > 0) {
+      let previous_position;
+
+      let velocity_x = 0;
+      let velocity_y = 0;
+      const speed = 175;
+
+      input_stack.forEach((input) => {
+        if (input.type === "movement") {
+          switch (input.direction) {
+            case "up":
+              velocity_y -= 1;
+              previous_position = "up";
+              break;
+            case "down":
+              velocity_y += 1;
+              previous_position = "down";
+              break;
+            case "left":
+              velocity_x -= 1;
+              previous_position = "left";
+              break;
+            case "right":
+              velocity_x += 1;
+              previous_position = "right";
+              break;
+            default:
+              break;
+          }
+        }
+      });
+
+      if (velocity_x !== 0 || velocity_y !== 0) {
+        const velocity = new Phaser.Math.Vector2(velocity_x, velocity_y);
+        velocity.normalize().scale(speed);
+        this.setPlayerPosition(player_entities, velocity, previous_position);
+      }
     }
   }
 
-  setPlayerPosition(player_entities, velocity) {
+  setPlayerPosition(player_entities, velocity, previous_position) {
+    this.initial_movement = true;
     player_entities.forEach((player) => {
-      player.fireEvent("update-position", {
-        x: player.phaserData.x,
-        y: player.phaserData.y,
-      });
-      player.fireEvent("stop-entity-movement");
+      player.add(Animation, { type: "movement" });
+      // player.fireEvent("stop-entity-movement");
       player.fireEvent("update-entity-movement", {
         velocity,
+        x: player.phaserData.phaser_ref.x,
+        y: player.phaserData.phaser_ref.y,
+        previous_position,
       });
     });
   }
 
   stopPlayerMovement(player_entities) {
     player_entities.forEach((player) => {
+      if (this.initial_movement) {
+        player.add(Animation, { type: "stop_movement" });
+      }
       player.fireEvent("stop-entity-movement");
     });
   }
 
+  destroy() {
+    window.removeEventListener(
+      "stopMovement",
+      this.handleStopMovement.bind(this)
+    );
+  }
+
   update(dt) {
-    this.updatePlayerPosition();
+    if (this.phaser_assets_loaded) {
+      this.updatePlayerPosition();
+    }
   }
 }

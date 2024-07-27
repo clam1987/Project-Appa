@@ -35,16 +35,16 @@ export class PhysicsSystem extends System {
 
   toggleDebugCollision() {
     const input_manager = this.game.managers.get("inputManager");
-    if (!this.debug_collision && input_manager.keys.debug.isDown) {
-      this.debug_collision = true;
-      this.game.managers.get("tileMapManager").displayDebugCollision();
-    } else {
-      this.debug_collision = false;
-    }
+    // if (!this.debug_collision && input_manager.keys.debug.isDown) {
+    //   this.debug_collision = true;
+    //   this.game.managers.get("tileMapManager").displayDebugCollision();
+    // } else {
+    //   this.debug_collision = false;
+    // }
   }
 
   update(dt) {
-    if (!this.world_collision_loaded) {
+    if (this.phaser_assets_loaded) {
       this.addWorldCollision();
     }
 

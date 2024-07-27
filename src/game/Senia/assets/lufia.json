@@ -1,0 +1,1335 @@
+{
+  "frames": {
+    "lufia-back": {
+      "frame": {
+        "x": 17,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.000": {
+      "frame": {
+        "x": 81,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.001": {
+      "frame": {
+        "x": 146,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.002": {
+      "frame": {
+        "x": 210,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.003": {
+      "frame": {
+        "x": 274,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.004": {
+      "frame": {
+        "x": 338,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.005": {
+      "frame": {
+        "x": 402,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.006": {
+      "frame": {
+        "x": 466,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-walk.007": {
+      "frame": {
+        "x": 530,
+        "y": 524,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 21,
+        "w": 30,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left": {
+      "frame": {
+        "x": 19,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.000": {
+      "frame": {
+        "x": 81,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.001": {
+      "frame": {
+        "x": 146,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.002": {
+      "frame": {
+        "x": 210,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.003": {
+      "frame": {
+        "x": 274,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.004": {
+      "frame": {
+        "x": 338,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.005": {
+      "frame": {
+        "x": 402,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.006": {
+      "frame": {
+        "x": 466,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-walk.007": {
+      "frame": {
+        "x": 530,
+        "y": 589,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front": {
+      "frame": {
+        "x": 19,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.000": {
+      "frame": {
+        "x": 81,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.001": {
+      "frame": {
+        "x": 146,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.002": {
+      "frame": {
+        "x": 210,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.003": {
+      "frame": {
+        "x": 274,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.004": {
+      "frame": {
+        "x": 338,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.005": {
+      "frame": {
+        "x": 402,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.006": {
+      "frame": {
+        "x": 466,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-walk.007": {
+      "frame": {
+        "x": 530,
+        "y": 651,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right": {
+      "frame": {
+        "x": 17,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.000": {
+      "frame": {
+        "x": 80,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.001": {
+      "frame": {
+        "x": 145,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.002": {
+      "frame": {
+        "x": 209,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.003": {
+      "frame": {
+        "x": 273,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.004": {
+      "frame": {
+        "x": 337,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.005": {
+      "frame": {
+        "x": 401,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.006": {
+      "frame": {
+        "x": 465,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-walk.007": {
+      "frame": {
+        "x": 529,
+        "y": 717,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.000": {
+      "frame": {
+        "x": 0,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.001": {
+      "frame": {
+        "x": 64,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.002": {
+      "frame": {
+        "x": 128,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.003": {
+      "frame": {
+        "x": 192,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.004": {
+      "frame": {
+        "x": 256,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-dead.005": {
+      "frame": {
+        "x": 320,
+        "y": 1280,
+        "w": 32,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 32,
+        "h": 41
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.000": {
+      "frame": {
+        "x": 67,
+        "y": 1407,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": -6,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.001": {
+      "frame": {
+        "x": 250,
+        "y": 1407,
+        "w": 50,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": -15,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.002": {
+      "frame": {
+        "x": 443,
+        "y": 1407,
+        "w": 47,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": -15,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.003": {
+      "frame": {
+        "x": 624,
+        "y": 1407,
+        "w": 60,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": -25,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.004": {
+      "frame": {
+        "x": 816,
+        "y": 1407,
+        "w": 83,
+        "h": 70
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": -25,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-back-slash.005": {
+      "frame": {
+        "x": 1035,
+        "y": 1407,
+        "w": 81,
+        "h": 67
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.000": {
+      "frame": {
+        "x": 0,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.001": {
+      "frame": {
+        "x": 192,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.002": {
+      "frame": {
+        "x": 384,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.003": {
+      "frame": {
+        "x": 576,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.004": {
+      "frame": {
+        "x": 768,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-left-slash.005": {
+      "frame": {
+        "x": 960,
+        "y": 1645,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.000": {
+      "frame": {
+        "x": 0,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.001": {
+      "frame": {
+        "x": 192,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.002": {
+      "frame": {
+        "x": 384,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.003": {
+      "frame": {
+        "x": 576,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.004": {
+      "frame": {
+        "x": 768,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-front-slash.005": {
+      "frame": {
+        "x": 960,
+        "y": 1825,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.000": {
+      "frame": {
+        "x": 0,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.001": {
+      "frame": {
+        "x": 192,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.002": {
+      "frame": {
+        "x": 384,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.003": {
+      "frame": {
+        "x": 576,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.004": {
+      "frame": {
+        "x": 768,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    },
+    "lufia-right-slash.005": {
+      "frame": {
+        "x": 960,
+        "y": 2005,
+        "w": 41,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 23,
+        "w": 41,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 64
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "lufia",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1153,
+      "h": 2046
+    },
+    "scale": "1"
+  }
+}

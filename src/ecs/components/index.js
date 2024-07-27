@@ -7,3 +7,4 @@ export { Animation } from "./Animation";
 export { Tweenable } from "./Tweenable";
 export { Camera } from "./Camera";
 export { Physics } from "./Physics";
+export { Action } from "./Action";

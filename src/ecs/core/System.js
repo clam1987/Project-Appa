@@ -7,7 +7,14 @@ export default class System {
 
   constructor(game) {
     this.#game = game;
+    this.phaser_assets_loaded = false;
   }
+
+  initialize() {
+    this.phaser_assets_loaded = true;
+  }
+
+  destroy() {}
 
   update(dt) {}
 }

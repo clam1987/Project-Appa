@@ -9,7 +9,6 @@ export class SpriteLoaderSystem extends System {
     this.sprite = game.world.world.createQuery({
       all: [Sprite],
     })._cache;
-    this.spritesLoaded = false;
   }
 
   loadSprite(entity) {
@@ -24,25 +23,22 @@ export class SpriteLoaderSystem extends System {
     );
 
     if (sprite.height !== null && sprite.width !== null) {
-      phaser_sprite.setDisplaySize(30, 50).setSize(30, 40).setOffset(0, 24);
+      phaser_sprite
+        .setDisplaySize(sprite.width, sprite.height)
+        .setSize(32, 50)
+        .setOffset(0, 24);
     }
 
     entity.fireEvent("sprite-loaded");
     entity.fireEvent("phaser-data-loaded", { phaser_ref: phaser_sprite });
   }
 
-  preloadComplete() {
-    this.spritesLoaded = true;
-  }
-
-  offLoadComplete() {
-    this.spritesLoaded = false;
-  }
-
   update(dt) {
-    for (const entity of this.sprite) {
-      if (!entity.sprite.loaded && this.spritesLoaded) {
-        this.loadSprite(entity);
+    if (this.phaser_assets_loaded) {
+      for (const entity of this.sprite) {
+        if (!entity.sprite.loaded) {
+          this.loadSprite(entity);
+        }
       }
     }
   }

@@ -5,6 +5,110 @@
     "scenes": [{ "name": "MainMenuScene", "prefabs": ["Player"] }],
     "systems": [],
     "assets": {
+      "animations": [
+        {
+          "key": "lufia-left-walk",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-left-walk.",
+            "start": 0,
+            "end": 7,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-right-walk",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-right-walk.",
+            "start": 0,
+            "end": 7,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-front-walk",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-front-walk.",
+            "start": 0,
+            "end": 7,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-back-walk",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-back-walk.",
+            "start": 0,
+            "end": 6,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-back-slash",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-back-slash.",
+            "start": 0,
+            "end": 5,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-front-slash",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-front-slash.",
+            "start": 0,
+            "end": 5,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-left-slash",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-left-slash.",
+            "start": 0,
+            "end": 5,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        },
+        {
+          "key": "lufia-right-slash",
+          "frameRate": 10,
+          "sprite_key": "lufia",
+          "frame": {
+            "prefix": "lufia-right-slash.",
+            "start": 0,
+            "end": 5,
+            "zeroPad": 3
+          },
+          "repeat": -1
+        }
+      ],
+      "idle_animations": {
+        "left": "lufia-left",
+        "right": "lufia-right",
+        "up": "lufia-back",
+        "down": "lufia-front"
+      },
       "images": [
         {
           "name": "menu_background",
@@ -19,9 +123,9 @@
       ],
       "sprites": [
         {
-          "name": "atlas",
-          "path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png",
-          "json_path": "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json",
+          "name": "lufia",
+          "path": "game/Senia/assets/lufia_spritesheet.png",
+          "json_path": "game/Senia/assets/lufia.json",
           "scene": "MainMenuScene"
         }
       ],
@@ -41,14 +145,19 @@
         "components": [
           {
             "type": "Position",
-            "properties": { "x": 352, "y": 1216 }
+            "properties": { "x": 352, "y": 1216, "previous_position": "up" }
           },
           {
             "type": "IsPlayer"
           },
           {
             "type": "Sprite",
-            "properties": { "key": "atlas", "sprite_start": "misa-front" }
+            "properties": {
+              "key": "lufia",
+              "sprite_start": "lufia-back",
+              "width": 30,
+              "height": 50
+            }
           },
           {
             "type": "PhaserData"

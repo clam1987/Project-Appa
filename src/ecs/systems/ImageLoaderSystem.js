@@ -9,7 +9,6 @@ export class ImageLoaderSystem extends System {
     this.image = game.world.world.createQuery({
       all: [Image],
     })._cache;
-    this.imagesLoaded = false;
   }
 
   loadImage(entity) {
@@ -22,18 +21,12 @@ export class ImageLoaderSystem extends System {
     entity.fireEvent("phaser-data-loaded", { phaser_ref: phaser_image });
   }
 
-  preloadComplete() {
-    this.imagesLoaded = true;
-  }
-
-  offLoadComplete() {
-    this.imagesLoaded = false;
-  }
-
   update(dt) {
-    for (const entity of this.image) {
-      if (!entity.image.loaded && this.imagesLoaded) {
-        this.loadImage(entity);
+    if (this.phaser_assets_loaded) {
+      for (const entity of this.image) {
+        if (!entity.image.loaded) {
+          this.loadImage(entity);
+        }
       }
     }
   }

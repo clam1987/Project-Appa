@@ -8,6 +8,8 @@ import {
   ImageLoaderSystem,
   CameraSystem,
   PhysicsSystem,
+  AnimationSystem,
+  ActionSystem,
 } from "../systems";
 import { InputManager, SceneManager, TileMapManager } from "../managers";
 
@@ -56,6 +58,8 @@ export default class Game {
     this.systems.set("imageLoaderSystem", new ImageLoaderSystem(this));
     this.systems.set("cameraSystem", new CameraSystem(this));
     this.systems.set("physicsSystem", new PhysicsSystem(this));
+    this.systems.set("animationSystem", new AnimationSystem(this));
+    this.systems.set("actionSystem", new ActionSystem(this));
   }
 
   initializeManagers() {

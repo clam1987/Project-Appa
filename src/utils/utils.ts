@@ -24,7 +24,19 @@ export const loadAssets = async (assets: any, game_name: string) => {
       }
     } else {
       const img_path = await import(`../${path}`);
-      loaded_assets.set(name, img_path.default || img_path);
+      if (asset?.json_name) {
+        const json = await import(`../${asset.json_path}`);
+        loaded_assets.set(name, {
+          path: img_path.default,
+          json: json.default,
+          json_name: asset.json_name,
+        });
+      } else if (asset?.json_path) {
+        const json = await import(`../${asset.json_path}`);
+        loaded_assets.set(name, { json: json.default, path: img_path.default });
+      } else {
+        loaded_assets.set(name, img_path.default || img_path);
+      }
     }
   }
 
