@@ -1,12 +1,12 @@
-import { IsPlayer, Action } from "../components";
+import { IsPlayer, Action, Animation } from "../components";
 import System from "../core/System";
 
 export class ActionSystem extends System {
   constructor(game) {
     super(game);
 
-    this.action = game.world.world.createQuery({
-      all: [IsPlayer, Action],
+    this.player_action = game.world.world.createQuery({
+      all: [IsPlayer],
     })._cache;
     this.action_complete = false;
     this.action_in_progress = false;
@@ -14,19 +14,37 @@ export class ActionSystem extends System {
 
   processAction() {
     const input_manager = this.game.managers.get("inputManager");
-    this.action_in_progress = true;
-    // if (input_manager.keys.attack.isDown) {
-    //   this.action.forEach((action) => {
-    //     if (action.animation.finished) {
-    //       // Should check equipment type but will implement later
-    //       //   action.fireEvent("process-action", { key: "melee" });
-    //     }
-    //   });
-    // }
+    const input_stack = input_manager
+      .getInputs()
+      .filter((input) => input.type !== "movement");
+    input_stack.forEach((action) => {
+      switch (action.type) {
+        case "action":
+          input_manager.actionInProgress();
+          this.player_action.forEach((player) => {
+            if (!player.has(Action)) {
+              player.add(Action);
+            }
+            player.fireEvent("process-action", { key: "melee", input_manager });
+          });
+          break;
+        default:
+          break;
+      }
+    });
   }
 
-  actionComplete() {
-    this.action_complete = true;
+  destroy() {
+    this.game.world.world.events.off(
+      "action-start",
+      this.handleActionStart,
+      this
+    );
+    this.game.world.world.events.off(
+      "action-complete",
+      this.handleActionComplete,
+      this
+    );
   }
 
   update(dt) {

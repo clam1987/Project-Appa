@@ -13,15 +13,41 @@ export class Animation extends Component {
     this.type = "" || type;
   }
 
-  onAnimationStart(evt) {
-    const { key } = evt.data;
-    const anims = this.entity.phaserData.phaser_ref.anims;
+  onAnimationMovementStart(evt) {
+    if (!this.play) {
+      const { key } = evt.data;
+      const anims = this.entity.phaserData.phaser_ref.anims;
 
-    if (anims) {
-      this.play = true;
-      this.finished = false;
-      anims.play(key, true);
-      evt.handle();
+      if (anims) {
+        this.play = true;
+        this.finished = false;
+        anims.play(key, true);
+        evt.handle();
+      }
+    }
+  }
+
+  onAnimationActionStart(evt) {
+    if (!this.play) {
+      const { key } = evt.data;
+      const anims = this.entity.phaserData.phaser_ref.anims;
+
+      if (anims) {
+        this.play = true;
+        this.finished = false;
+        anims.play(key, true).on("animationcomplete", () => {
+          if (this?.entity) {
+            if (evt.data?.stop_key) {
+              this.entity.fireEvent("animation-stop", {
+                stop_key: evt.data.stop_key,
+              });
+            } else {
+              this.entity.fireEvent("animation-stop");
+            }
+          }
+        });
+        evt.handle();
+      }
     }
   }
 
@@ -34,13 +60,15 @@ export class Animation extends Component {
         const key = this.entity.phaserData.key;
         this.entity.phaserData.phaser_ref.setTexture(key, evt.data.stop_key);
       }
+      this.entity.fireEvent("animation-complete");
       evt.handle();
     }
   }
 
   onAnimationComplete(evt) {
     this.finished = true;
-    // this.entity.remove(this);
+    this.entity.fireEvent("action-complete");
+    this.entity.remove(this);
     evt.handle();
   }
 }

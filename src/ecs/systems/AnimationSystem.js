@@ -11,10 +11,10 @@ export class AnimationSystem extends System {
     this.actions = [
       "left",
       "right",
-      "down",
-      "up",
-      "attack_up",
-      "attack_down",
+      "front",
+      "back",
+      "attack_back",
+      "attack_front",
       "attack_left",
       "attack_right",
     ];
@@ -45,21 +45,27 @@ export class AnimationSystem extends System {
   }
 
   animate() {
-    // const input_manager = this.game.managers.get("inputManager");
     const animation_keys = this.animation_data.reduce((map, { key }, i) => {
       map[this.actions[i]] = key;
       return map;
     }, {});
+
     this.player.forEach((player) => {
+      const current_direction = player.position.previous_position;
       switch (player.animation.type) {
         case "movement":
-          player.fireEvent("animation-start", {
+          player.fireEvent("animation-movement-start", {
             key: animation_keys[player.position.previous_position],
           });
           break;
         case "stop_movement":
-          const current_direction = player.position.previous_position;
           player.fireEvent("animation-stop", {
+            stop_key: this.idle_animation[current_direction],
+          });
+          break;
+        case "sword_attack":
+          player.fireEvent("animation-action-start", {
+            key: animation_keys[`attack_${current_direction}`],
             stop_key: this.idle_animation[current_direction],
           });
           break;
@@ -67,45 +73,6 @@ export class AnimationSystem extends System {
           break;
       }
     });
-    // this.player.forEach((player) => {
-    //   const phaser_ref = player.phaserData.phaser_ref;
-    //   if (phaser_ref) {
-    //     if (input_manager.keys.move_left.isDown) {
-    //       player.phaserData.phaser_ref.anims.play("lufia-left-walk", true);
-    //     } else if (input_manager.keys.move_down.isDown) {
-    //       player.phaserData.phaser_ref.anims.play("lufia-front-walk", true);
-    //     } else if (input_manager.keys.move_right.isDown) {
-    //       player.phaserData.phaser_ref.anims.play("lufia-right-walk", true);
-    //     } else if (input_manager.keys.move_up.isDown) {
-    //       player.phaserData.phaser_ref.anims.play("lufia-back-walk", true);
-    //     } else if (input_manager.keys.attack.isDown) {
-    //       const direction = player.position.previous_position;
-    //       switch (direction) {
-    //         case "up":
-    //           player.fireEvent("animation-start", { key: "lufia-back-slash" });
-    //           break;
-    //         case "down":
-    //           player.fireEvent("animation-start", { key: "lufia-front-slash" });
-    //           break;
-    //         case "left":
-    //           player.fireEvent("animation-start", { key: "lufia-left-slash" });
-    //           break;
-    //         case "right":
-    //           player.fireEvent("animation-start", { key: "lufia-right-slash" });
-    //           break;
-    //         default:
-    //           console.log("no valid direction");
-    //           break;
-    //       }
-    //     } else {
-    //       player.phaserData.phaser_ref.anims.stop();
-    //     }
-    //   }
-    // });
-  }
-
-  getStopFrameKey(direction) {
-    return;
   }
 
   update(dt) {

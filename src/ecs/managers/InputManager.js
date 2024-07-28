@@ -1,20 +1,15 @@
 import Phaser from "phaser";
 import Manager from "./Manager";
-import {
-  MOVE_DOWN,
-  MOVE_LEFT,
-  MOVE_RIGHT,
-  MOVE_UP,
-  ATTACK,
-} from "../../utils/game_actions";
 
 export class InputManager extends Manager {
+  #eventEmitter;
   constructor(game) {
     super(game);
 
     this.keys = {};
     this.combos = {};
     this.input_stack = [];
+    this.action_in_progress = false;
 
     this.keyStates = {
       move_up: false,
@@ -22,6 +17,7 @@ export class InputManager extends Manager {
       move_left: false,
       move_right: false,
     };
+    this.#eventEmitter = new Phaser.Events.EventEmitter();
     /* for keybinding implementation
     this.keybind = {};
     */
@@ -75,6 +71,7 @@ export class InputManager extends Manager {
         default:
           break;
       }
+
       this.checkForStopMovement();
     });
 
@@ -87,11 +84,32 @@ export class InputManager extends Manager {
     const allKeysReleased = Object.values(this.keyStates).every(
       (state) => !state
     );
-
-    if (allKeysReleased) {
-      const event = new CustomEvent("stopMovement");
-      window.dispatchEvent(event);
+    const actionSystem = this.game.systems.get("actionSystem");
+    if (actionSystem) {
+      console.log(
+        "current state of action in progres: ",
+        actionSystem.action_in_progress
+      );
+      if (allKeysReleased && !this.action_in_progress) {
+        this.#eventEmitter.emit("stopMovement");
+      }
     }
+  }
+
+  onStopMovement(callback, context) {
+    this.#eventEmitter.on("stopMovement", callback, context);
+  }
+
+  offStopMovement(callback, context) {
+    this.#eventEmitter.off("stopMovement", callback, context);
+  }
+
+  actionComplete() {
+    this.action_in_progress = false;
+  }
+
+  actionInProgress() {
+    this.action_in_progress = true;
   }
 
   registerCombo(name, keys) {
@@ -111,18 +129,25 @@ export class InputManager extends Manager {
 
   getInputs() {
     const commands = [];
+    const allKeysReleased = Object.values(this.keyStates).every(
+      (state) => !state
+    );
 
-    if (this.keys.move_up.isDown) {
-      commands.push({ type: "movement", direction: "up" });
+    if (this.keys.move_up.isDown && !this.action_in_progress) {
+      commands.push({ type: "movement", direction: "back" });
     }
-    if (this.keys.move_down.isDown) {
-      commands.push({ type: "movement", direction: "down" });
+    if (this.keys.move_down.isDown && !this.action_in_progress) {
+      commands.push({ type: "movement", direction: "front" });
     }
-    if (this.keys.move_left.isDown) {
+    if (this.keys.move_left.isDown && !this.action_in_progress) {
       commands.push({ type: "movement", direction: "left" });
     }
-    if (this.keys.move_right.isDown) {
+    if (this.keys.move_right.isDown && !this.action_in_progress) {
       commands.push({ type: "movement", direction: "right" });
+    }
+
+    if (this.keys.attack.isDown && allKeysReleased) {
+      commands.push({ type: "action", direction: "" });
     }
 
     return commands;

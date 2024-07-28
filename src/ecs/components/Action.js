@@ -9,14 +9,18 @@ export class Action extends Component {
       bow: "bow",
       magic: "magic",
     };
+
+    this.input_manager = null;
   }
 
   onProcessAction(evt) {
-    const { key } = evt.data;
-    console.log(this.actions[key]);
+    const { key, input_manager } = evt.data;
+    this.input_manager = input_manager;
     switch (this.actions[key]) {
       case "melee":
-        this.entity.add(Animation);
+        if (!this.entity.has(Animation)) {
+          this.entity.add(Animation, { type: "sword_attack" });
+        }
         break;
       case "bow":
         break;
@@ -26,7 +30,16 @@ export class Action extends Component {
         console.log("no cases matched");
         break;
     }
+
+    evt.handle();
   }
 
-  onActionComplete(evt) {}
+  onActionComplete(evt) {
+    if (this.input_manager) {
+      this.input_manager.actionComplete();
+      this.input_manager = null;
+    }
+    this.entity.remove(this);
+    evt.handle();
+  }
 }

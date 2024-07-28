@@ -12,8 +12,15 @@ export class MovementSystem extends System {
 
     // Flag for initial player movement so animation doesn't run while player entity spawns in.
     this.initial_movement = false;
+  }
 
-    window.addEventListener("stopMovement", this.handleStopMovement.bind(this));
+  initialize() {
+    this.phaser_assets_loaded = true;
+
+    const inputManager = this.game.managers.get("inputManager");
+    if (inputManager) {
+      inputManager.onStopMovement(this.handleStopMovement, this);
+    }
   }
 
   handleStopMovement() {
@@ -26,7 +33,9 @@ export class MovementSystem extends System {
 
   updatePlayerPosition() {
     const input_manager = this.game.managers.get("inputManager");
-    const input_stack = input_manager.getInputs();
+    const input_stack = input_manager
+      .getInputs()
+      .filter((input) => input.type === "movement");
     const player_entities = this.position.filter(
       (entity) => entity.id === "Player"
     );
@@ -40,13 +49,13 @@ export class MovementSystem extends System {
       input_stack.forEach((input) => {
         if (input.type === "movement") {
           switch (input.direction) {
-            case "up":
+            case "back":
               velocity_y -= 1;
-              previous_position = "up";
+              previous_position = "back";
               break;
-            case "down":
+            case "front":
               velocity_y += 1;
-              previous_position = "down";
+              previous_position = "front";
               break;
             case "left":
               velocity_x -= 1;
@@ -74,7 +83,6 @@ export class MovementSystem extends System {
     this.initial_movement = true;
     player_entities.forEach((player) => {
       player.add(Animation, { type: "movement" });
-      // player.fireEvent("stop-entity-movement");
       player.fireEvent("update-entity-movement", {
         velocity,
         x: player.phaserData.phaser_ref.x,
@@ -88,16 +96,16 @@ export class MovementSystem extends System {
     player_entities.forEach((player) => {
       if (this.initial_movement) {
         player.add(Animation, { type: "stop_movement" });
+        player.fireEvent("stop-entity-movement", {
+          initial_movement: this.initial_movement,
+        });
       }
-      player.fireEvent("stop-entity-movement");
     });
   }
 
   destroy() {
-    window.removeEventListener(
-      "stopMovement",
-      this.handleStopMovement.bind(this)
-    );
+    const inputManager = this.game.managers.get("inputManager");
+    inputManager.offStopMovement(this.handleStopMovement, this);
   }
 
   update(dt) {

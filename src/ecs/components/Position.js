@@ -11,7 +11,7 @@ export class Position extends Component {
   onStopEntityMovement(evt) {
     const phaser_ref = this.entity.phaserData.phaser_ref;
     if (phaser_ref) {
-      phaser_ref?.setVelocity(0);
+      phaser_ref.setVelocity(0);
       evt.handle();
     }
   }
@@ -25,9 +25,6 @@ export class Position extends Component {
       this.x = x;
       this.y = y;
       this.previous_position = previous_position;
-      // console.log(
-      //   `current X: ${this.x} and current Y: ${this.y} and current_position: ${this.previous_position}`
-      // );
     }
 
     evt.handle();

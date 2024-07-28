@@ -56,7 +56,7 @@
         },
         {
           "key": "lufia-back-slash",
-          "frameRate": 10,
+          "frameRate": 20,
           "sprite_key": "lufia",
           "frame": {
             "prefix": "lufia-back-slash.",
@@ -64,11 +64,11 @@
             "end": 5,
             "zeroPad": 3
           },
-          "repeat": -1
+          "repeat": 0
         },
         {
           "key": "lufia-front-slash",
-          "frameRate": 10,
+          "frameRate": 20,
           "sprite_key": "lufia",
           "frame": {
             "prefix": "lufia-front-slash.",
@@ -76,11 +76,11 @@
             "end": 5,
             "zeroPad": 3
           },
-          "repeat": -1
+          "repeat": 0
         },
         {
           "key": "lufia-left-slash",
-          "frameRate": 10,
+          "frameRate": 20,
           "sprite_key": "lufia",
           "frame": {
             "prefix": "lufia-left-slash.",
@@ -88,11 +88,11 @@
             "end": 5,
             "zeroPad": 3
           },
-          "repeat": -1
+          "repeat": 0
         },
         {
           "key": "lufia-right-slash",
-          "frameRate": 10,
+          "frameRate": 20,
           "sprite_key": "lufia",
           "frame": {
             "prefix": "lufia-right-slash.",
@@ -100,7 +100,7 @@
             "end": 5,
             "zeroPad": 3
           },
-          "repeat": -1
+          "repeat": 0
         }
       ],
       "idle_animations": {
@@ -145,7 +145,7 @@
         "components": [
           {
             "type": "Position",
-            "properties": { "x": 352, "y": 1216, "previous_position": "up" }
+            "properties": { "x": 352, "y": 1216, "previous_position": "back" }
           },
           {
             "type": "IsPlayer"

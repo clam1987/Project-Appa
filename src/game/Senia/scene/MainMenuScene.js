@@ -63,56 +63,13 @@ export default class MainMenuScene extends Phaser.Scene {
       }
     });
 
-    this.fpsText = this.add.text(0, 0, "FPS: 0", {
-      fontSize: "42px",
-      color: "#FFFF00",
-    });
-
-    /* Animation Process to implement
-      const anims = this.anims;
-  anims.create({
-    key: "misa-left-walk",
-    frames: anims.generateFrameNames("atlas", { prefix: "misa-left-walk.", start: 0, end: 3, zeroPad: 3 }),
-    frameRate: 10,
-    repeat: -1
-  });
-  anims.create({
-    key: "misa-right-walk",
-    frames: anims.generateFrameNames("atlas", { prefix: "misa-right-walk.", start: 0, end: 3, zeroPad: 3 }),
-    frameRate: 10,
-    repeat: -1
-  });
-  anims.create({
-    key: "misa-front-walk",
-    frames: anims.generateFrameNames("atlas", { prefix: "misa-front-walk.", start: 0, end: 3, zeroPad: 3 }),
-    frameRate: 10,
-    repeat: -1
-  });
-  anims.create({
-    key: "misa-back-walk",
-    frames: anims.generateFrameNames("atlas", { prefix: "misa-back-walk.", start: 0, end: 3, zeroPad: 3 }),
-    frameRate: 10,
-    repeat: -1
-  });
-
-  // Animation updates
-  if (cursors.left.isDown) {
-    player.anims.play("misa-left-walk", true);
-  } else if (cursors.right.isDown) {
-    player.anims.play("misa-right-walk", true);
-  } else if (cursors.up.isDown) {
-    player.anims.play("misa-back-walk", true);
-  } else if (cursors.down.isDown) {
-    player.anims.play("misa-front-walk", true);
-  } else {
-    player.anims.stop();
-
-  // Idle frames
-   if (prevVelocity.x < 0) player.setTexture("atlas", "misa-left");
-    else if (prevVelocity.x > 0) player.setTexture("atlas", "misa-right");
-    else if (prevVelocity.y < 0) player.setTexture("atlas", "misa-back");
-    else if (prevVelocity.y > 0) player.setTexture("atlas", "misa-front");
-    */
+    this.fpsText = this.add
+      .text(0, 0, "FPS: 0", {
+        fontSize: "42px",
+        color: "#FFFF00",
+      })
+      .setScrollFactor(0)
+      .setDepth(999);
   }
 
   update(time, delta) {
