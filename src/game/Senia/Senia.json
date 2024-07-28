@@ -106,8 +106,8 @@
       "idle_animations": {
         "left": "lufia-left",
         "right": "lufia-right",
-        "up": "lufia-back",
-        "down": "lufia-front"
+        "back": "lufia-back",
+        "front": "lufia-front"
       },
       "images": [
         {

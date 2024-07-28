@@ -86,10 +86,6 @@ export class InputManager extends Manager {
     );
     const actionSystem = this.game.systems.get("actionSystem");
     if (actionSystem) {
-      console.log(
-        "current state of action in progres: ",
-        actionSystem.action_in_progress
-      );
       if (allKeysReleased && !this.action_in_progress) {
         this.#eventEmitter.emit("stopMovement");
       }
