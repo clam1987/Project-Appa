@@ -25,8 +25,8 @@ export class SpriteLoaderSystem extends System {
     if (sprite.height !== null && sprite.width !== null) {
       phaser_sprite
         .setDisplaySize(sprite.width, sprite.height)
-        .setSize(32, 50)
-        .setOffset(0, 24);
+        .setOrigin(1, 1)
+        .setSize(sprite.width, sprite.height);
     }
 
     entity.fireEvent("sprite-loaded");

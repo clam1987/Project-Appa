@@ -69,7 +69,7 @@ export default class MainMenuScene extends Phaser.Scene {
         color: "#FFFF00",
       })
       .setScrollFactor(0)
-      .setDepth(999);
+      .setDepth(30);
   }
 
   update(time, delta) {

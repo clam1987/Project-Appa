@@ -146,6 +146,10 @@ export class InputManager extends Manager {
       commands.push({ type: "action", direction: "" });
     }
 
+    if (this.keys.debug.isDown && allKeysReleased) {
+      commands.push({ type: "debug", direction: "" });
+    }
+
     return commands;
   }
 

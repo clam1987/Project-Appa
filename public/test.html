@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Sprite Coordinates</title>
+  </head>
+  <body>
+    <canvas id="spritesheetCanvas" style="display: none"></canvas>
+    <script>
+      const spriteWidth = 32; // Width of regular sprites
+      const spriteHeight = 32; // Height of regular sprites
+      const largerSpriteWidth = 64; // Width of larger sprites
+      const largerSpriteHeight = 64; // Height of larger sprites
+
+      const image = new Image();
+      image.src = "../src/game/Senia/assets/lufia_spritesheet.png"; // Path to your spritesheet
+
+      image.onload = () => {
+        const sheetWidth = image.width;
+        const sheetHeight = image.height;
+
+        // Calculate the number of sprites in the sheet
+        const numSpritesX = Math.floor(sheetWidth / spriteWidth);
+        const numSpritesY = Math.floor(sheetHeight / spriteHeight);
+
+        let spriteData = [];
+
+        // Loop through the sprites and collect their coordinates
+        for (let y = 0; y < numSpritesY; y++) {
+          for (let x = 0; x < numSpritesX; x++) {
+            let width = spriteWidth;
+            let height = spriteHeight;
+
+            // Adjust for larger sprites at the bottom
+            if (y === numSpritesY - 1 && x >= numSpritesX - 2) {
+              width = largerSpriteWidth;
+              height = largerSpriteHeight;
+            }
+
+            // Correct coordinates for specific frames
+            if (
+              y === numSpritesY - 1 &&
+              (x === numSpritesX - 2 || x === numSpritesX - 1)
+            ) {
+              // These frames are lufia-back-slash-004 and lufia-back-slash-005
+              let specificHeight = 70;
+              height = specificHeight;
+            }
+
+            // Collect sprite data
+            spriteData.push({
+              x: x * width,
+              y: y * height,
+              width: width,
+              height: height,
+            });
+          }
+        }
+
+        // Output the JSON data
+        console.log(JSON.stringify(spriteData, null, 2));
+      };
+    </script>
+  </body>
+</html>
