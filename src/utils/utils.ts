@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 export const camelCase = (str: string) =>
   str
     .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index: number) =>
@@ -51,3 +53,45 @@ const isHttps = (url_string: string) => {
     return false;
   }
 };
+
+export function createSightTriangle(
+  position: any,
+  range: number,
+  fov: number,
+  facingAngle: number
+) {
+  const halfFov = fov / 2;
+  const leftAngle = facingAngle - halfFov;
+  const rightAngle = facingAngle + halfFov;
+
+  const leftPoint = {
+    x: position.x + range * Math.cos(leftAngle),
+    y: position.y + range * Math.sin(leftAngle),
+  };
+  const rightPoint = {
+    x: position.x + range * Math.cos(rightAngle),
+    y: position.y + range * Math.sin(rightAngle),
+  };
+
+  return new Phaser.Geom.Triangle(
+    position.x,
+    position.y,
+    leftPoint.x,
+    leftPoint.y,
+    rightPoint.x,
+    rightPoint.y
+  );
+}
+
+export function createCharacterRectangle(
+  position: any,
+  width: number,
+  height: number
+) {
+  return new Phaser.Geom.Rectangle(
+    position.x - width / 2,
+    position.y - height / 2,
+    width,
+    height
+  );
+}

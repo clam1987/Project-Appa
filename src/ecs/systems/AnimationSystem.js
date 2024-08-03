@@ -52,25 +52,27 @@ export class AnimationSystem extends System {
 
     this.player.forEach((player) => {
       const current_direction = player.position.previous_position;
-      switch (player.animation.type) {
-        case "movement":
-          player.fireEvent("animation-movement-start", {
-            key: animation_keys[player.position.previous_position],
-          });
-          break;
-        case "stop_movement":
-          player.fireEvent("animation-stop", {
-            stop_key: this.idle_animation[current_direction],
-          });
-          break;
-        case "sword_attack":
-          player.fireEvent("animation-action-start", {
-            key: animation_keys[`attack_${current_direction}`],
-            stop_key: this.idle_animation[current_direction],
-          });
-          break;
-        default:
-          break;
+      if (current_direction) {
+        switch (player.animation.type) {
+          case "movement":
+            player.fireEvent("animation-movement-start", {
+              key: animation_keys[player.position.previous_position],
+            });
+            break;
+          case "stop_movement":
+            player.fireEvent("animation-stop", {
+              stop_key: this.idle_animation[current_direction],
+            });
+            break;
+          case "sword_attack":
+            player.fireEvent("animation-action-start", {
+              key: animation_keys[`attack_${current_direction}`],
+              stop_key: this.idle_animation[current_direction],
+            });
+            break;
+          default:
+            break;
+        }
       }
     });
   }

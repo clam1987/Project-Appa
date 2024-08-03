@@ -1,0 +1,12 @@
+{
+  "name": "Enemy",
+  "components": [
+    {
+      "type": "Position",
+      "properties": { "x": 5, "y": 10 }
+    },
+    {
+      "type": "PhaserData"
+    }
+  ]
+}

@@ -10,6 +10,8 @@ import {
   PhysicsSystem,
   AnimationSystem,
   ActionSystem,
+  EnemyAISystem,
+  SightSystem,
 } from "../systems";
 import { InputManager, SceneManager, TileMapManager } from "../managers";
 
@@ -60,6 +62,8 @@ export default class Game {
     this.systems.set("physicsSystem", new PhysicsSystem(this));
     this.systems.set("animationSystem", new AnimationSystem(this));
     this.systems.set("actionSystem", new ActionSystem(this));
+    this.systems.set("enemyAISystem", new EnemyAISystem(this));
+    this.systems.set("sightSystem", new SightSystem(this));
   }
 
   initializeManagers() {

@@ -1,4 +1,10 @@
-import { Position, IsPlayer, PhaserData, Animation } from "../components";
+import {
+  Position,
+  IsPlayer,
+  PhaserData,
+  Animation,
+  IsEnemy,
+} from "../components";
 import Phaser from "phaser";
 import System from "../core/System";
 
@@ -6,8 +12,12 @@ export class MovementSystem extends System {
   constructor(game) {
     super(game);
 
-    this.position = game.world.world.createQuery({
+    this.player_position = game.world.world.createQuery({
       all: [Position, IsPlayer, PhaserData],
+    })._cache;
+
+    this.enemies_position = game.world.world.createQuery({
+      all: [Position, IsEnemy, PhaserData],
     })._cache;
 
     // Flag for initial player movement so animation doesn't run while player entity spawns in.
@@ -24,7 +34,7 @@ export class MovementSystem extends System {
   }
 
   handleStopMovement() {
-    const player_entities = this.position.filter(
+    const player_entities = this.player_position.filter(
       (entity) => entity.id === "Player"
     );
 
@@ -36,7 +46,7 @@ export class MovementSystem extends System {
     const input_stack = input_manager
       .getInputs()
       .filter((input) => input.type === "movement");
-    const player_entities = this.position.filter(
+    const player_entities = this.player_position.filter(
       (entity) => entity.id === "Player"
     );
     if (input_stack.length > 0) {

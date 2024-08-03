@@ -6,7 +6,6 @@ export class TileMapManager extends Manager {
     super(game);
 
     this.current_tilemap = null;
-    this.previous_position = null;
   }
 
   loadTileMap(scene, tilemap) {

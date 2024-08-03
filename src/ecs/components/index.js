@@ -8,3 +8,8 @@ export { Tweenable } from "./Tweenable";
 export { Camera } from "./Camera";
 export { Physics } from "./Physics";
 export { Action } from "./Action";
+export { Enemy } from "./Enemy";
+export { IsEnemy } from "./IsEnemy";
+export { Player } from "./Player";
+export { Sight } from "./Sight";
+export { PlayerSightBox } from "./PlayerSightBox";

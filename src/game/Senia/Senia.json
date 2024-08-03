@@ -2,7 +2,7 @@
   "name": "Senia",
   "total_players": 1,
   "data": {
-    "scenes": [{ "name": "MainMenuScene", "prefabs": ["Player"] }],
+    "scenes": [{ "name": "MainMenuScene", "prefabs": ["Player", "Enemy"] }],
     "systems": [],
     "assets": {
       "animations": [
@@ -176,7 +176,31 @@
         "components": [
           {
             "type": "Position",
-            "properties": { "x": 5, "y": 10 }
+            "properties": { "x": 380, "y": 890, "previous_position": "front" }
+          },
+          {
+            "type": "Sprite",
+            "properties": {
+              "key": "cat",
+              "width": 40,
+              "height": 60
+            }
+          },
+          {
+            "type": "Enemy"
+          },
+          {
+            "type": "IsEnemy"
+          },
+          {
+            "type": "Physics"
+          },
+          {
+            "type": "PhaserData"
+          },
+          {
+            "type": "Sight",
+            "properties": { "range": 150, "fov": 6 }
           }
         ]
       }
