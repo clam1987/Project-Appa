@@ -24,8 +24,10 @@ export class SceneManager extends Manager {
   }
 
   startScene(scene) {
-    this.scene_manager.start(scene);
-    console.log(`${scene} started!`);
+    if (!this.scene_manager.getScene(scene).sys.isActive()) {
+      this.scene_manager.start(scene);
+      console.log(`${scene} started!`);
+    }
   }
 
   changeScene(scene) {}
