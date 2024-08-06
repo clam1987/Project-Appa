@@ -58,28 +58,26 @@ export function createSightTriangle(
   position: any,
   range: number,
   fov: number,
-  facingAngle: number
+  facing_angle: number,
+  height: number,
+  width: number
 ) {
-  const halfFov = fov / 2;
-  const leftAngle = facingAngle - halfFov;
-  const rightAngle = facingAngle + halfFov;
-
-  const leftPoint = {
-    x: position.x + range * Math.cos(leftAngle),
-    y: position.y + range * Math.sin(leftAngle),
-  };
-  const rightPoint = {
-    x: position.x + range * Math.cos(rightAngle),
-    y: position.y + range * Math.sin(rightAngle),
-  };
+  const center_x = position.x - width / 2;
+  const center_y = position.y - height / 2;
+  const leftAngle = facing_angle - fov / 2;
+  const rightAngle = facing_angle + fov / 2;
+  const end_x1 = center_x + range * Math.cos(leftAngle);
+  const end_y1 = center_y + range * Math.sin(leftAngle);
+  const end_x2 = center_x + range * Math.cos(rightAngle);
+  const end_y2 = center_y + range * Math.sin(rightAngle);
 
   return new Phaser.Geom.Triangle(
-    position.x,
-    position.y,
-    leftPoint.x,
-    leftPoint.y,
-    rightPoint.x,
-    rightPoint.y
+    center_x,
+    center_y,
+    end_x1,
+    end_y1,
+    end_x2,
+    end_y2
   );
 }
 
@@ -89,8 +87,8 @@ export function createCharacterRectangle(
   height: number
 ) {
   return new Phaser.Geom.Rectangle(
-    position.x - width / 2,
-    position.y - height / 2,
+    position.x - width,
+    position.y - height,
     width,
     height
   );

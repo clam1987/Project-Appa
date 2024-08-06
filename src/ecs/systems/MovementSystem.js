@@ -99,6 +99,10 @@ export class MovementSystem extends System {
         y: player.phaserData.phaser_ref.y,
         previous_position,
       });
+      player.fireEvent("update-sight-box-position", {
+        x: player.phaserData.phaser_ref.x,
+        y: player.phaserData.phaser_ref.y,
+      });
     });
   }
 

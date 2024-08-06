@@ -156,11 +156,14 @@
               "key": "lufia",
               "sprite_start": "lufia-back",
               "width": 27,
-              "height": 45
+              "height": 40
             }
           },
           {
             "type": "PhaserData"
+          },
+          {
+            "type": "PlayerSightBox"
           },
           {
             "type": "Physics"
