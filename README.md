@@ -15,3 +15,5 @@ To start the game, all you need to do is run `npm start` in the command line and
 ## 3. ECS examples
 
 Will be updated in the future.
+
+For now, see https://github.com/ddmills/geotic for ECS library usage.
