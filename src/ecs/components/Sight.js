@@ -27,13 +27,11 @@ export class Sight extends Component {
   }
 
   onPlayerSeen(evt) {
-    console.log("player seen");
     this.player_sighted = true;
     evt.handle();
   }
 
   onPlayerLost(evt) {
-    console.log("player lost");
     this.player_sighted = false;
     evt.handle();
   }

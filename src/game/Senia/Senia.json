@@ -179,7 +179,7 @@
         "components": [
           {
             "type": "Position",
-            "properties": { "x": 380, "y": 890, "previous_position": "front" }
+            "properties": { "x": 380, "y": 890, "previous_position": "left" }
           },
           {
             "type": "Sprite",
@@ -190,7 +190,13 @@
             }
           },
           {
-            "type": "Enemy"
+            "type": "EnemyData",
+            "properties": {
+              "state": "patrol",
+              "direction": "left",
+              "patrol_distance": 100,
+              "speed": 185
+            }
           },
           {
             "type": "IsEnemy"

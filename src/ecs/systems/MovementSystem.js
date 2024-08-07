@@ -4,6 +4,7 @@ import {
   PhaserData,
   Animation,
   IsEnemy,
+  Patrol,
 } from "../components";
 import Phaser from "phaser";
 import System from "../core/System";
@@ -17,7 +18,7 @@ export class MovementSystem extends System {
     })._cache;
 
     this.enemies_position = game.world.world.createQuery({
-      all: [Position, IsEnemy, PhaserData],
+      all: [IsEnemy, Patrol],
     })._cache;
 
     // Flag for initial player movement so animation doesn't run while player entity spawns in.
@@ -117,6 +118,65 @@ export class MovementSystem extends System {
     });
   }
 
+  updateEnemyPosition() {
+    this.enemies_position.forEach((enemy) => {
+      let velocity_x = 0;
+      let velocity_y = 0;
+      const current_x = Math.ceil(enemy.phaserData.phaser_ref.x) + 1;
+      const current_y = Math.ceil(enemy.phaserData.phaser_ref.y) + 1;
+
+      switch (enemy.enemyData.direction) {
+        case "left":
+          const max_left = enemy.patrol.origin_point.x - enemy.patrol.distance;
+          if (current_x === max_left) {
+            enemy.fireEvent("return-to-origin");
+          }
+          if (current_x > max_left) {
+            velocity_x -= 1;
+          }
+          break;
+        case "right":
+          const max_right = enemy.patrol.origin_point.x + enemy.patrol.distance;
+          if (current_x === max_right) {
+            enemy.fireEvent("return-to-origin");
+          }
+          if (current_x < max_right) {
+            velocity_x += 1;
+          }
+          break;
+        case "front":
+          const max_down = enemy.patrol.origin_point.y - enemy.patrol.distance;
+          if (current_y === max_down) {
+            enemy.fireEvent("return-to-origin");
+          }
+          if (current_y < max_down) {
+            velocity_y += 1;
+          }
+          break;
+        case "back":
+          const max_up = enemy.patrol.origin_point.y - enemy.patrol.distance;
+          if (current_y === max_up) {
+            enemy.fireEvent("return-to-origin");
+          }
+          if (current_y > max_up) {
+            velocity_y -= 1;
+          }
+          break;
+        default:
+          break;
+      }
+
+      const velocity = new Phaser.Math.Vector2(velocity_x, 0);
+      velocity.normalize().scale(enemy.enemyData.speed);
+      enemy.fireEvent("update-entity-movement", {
+        velocity,
+        x: enemy.phaserData.phaser_ref.x,
+        y: enemy.phaserData.phaser_ref.y,
+        previous_position: enemy.enemyData.direction,
+      });
+    });
+  }
+
   destroy() {
     const inputManager = this.game.managers.get("inputManager");
     inputManager.offStopMovement(this.handleStopMovement, this);
@@ -125,6 +185,7 @@ export class MovementSystem extends System {
   update(dt) {
     if (this.phaser_assets_loaded) {
       this.updatePlayerPosition();
+      this.updateEnemyPosition();
     }
   }
 }

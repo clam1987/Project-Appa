@@ -1,6 +1,6 @@
 import { Component } from "geotic";
 
-export class Enemy extends Component {
+export class Idle extends Component {
   constructor() {
     super();
   }
